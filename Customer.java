@@ -108,11 +108,12 @@ public class Customer{
             order = myOrders.get(i);
             if(order.totalPrice() > maxTotal) {
                 maxTotal = order.totalPrice();
-                maxIndex = i;
+                maxIndex++;
             } else {
                 i++;
             }
         }
+        order = myOrders.get(maxIndex);
         return order;
     }
 

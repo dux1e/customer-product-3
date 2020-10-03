@@ -13,14 +13,25 @@ import org.junit.Test;
  */
 public class TestRig
 {
-    private Customer customer1;
-    private Product product1;
-    private Product product2;
-    private Order order1;
-    private OrderLine orderLin1;
-    private OrderLine orderLin2;
-    private Order order2;
-    private OrderLine orderLin3;
+    private Product rødvin;
+    private Product hvidvin;
+    private Product mousserendeVin;
+    private OrderLine orderLineRød;
+    private OrderLine orderLineHvid;
+    private OrderLine orderLineMousserende;
+    private Order orderRød;
+    private Order orderHvid;
+    private Order orderMousserende;
+    private Customer customerJoakim;
+
+    
+    
+    
+    
+    
+    
+    
+    
 
 
     /**
@@ -38,19 +49,24 @@ public class TestRig
     @Before
     public void setUp()
     {
-        product1 = new Product(1, "Mælk", 10, 100);
-        product2 = new Product(2, "Øl", 20, 200);
-        order1 = new Order(1, "11-11-11", "mmm");
-        orderLin1 = new OrderLine(2, product1);
-        order1.addOrderLine(orderLin1);
-        orderLin2 = new OrderLine(5, product2);
-        order1.addOrderLine(orderLin2);
-        order2 = new Order(3, "12345", "12345");
-        orderLin3 = new OrderLine(100, product1);
-        order2.addOrderLine(orderLin3);
-        customer1 = new Customer(111, "Ib", "X-gade 12", "12345678");
-        customer1.addOrder(order1);
-        customer1.addOrder(order2);
+        rødvin = new Product(1, "Rødvin", 60, 5);
+        hvidvin = new Product(2, "Hvidvin", 100, 5);
+        mousserendeVin = new Product(3, "Mousserende Vin", 80, 5);
+        orderLineRød = new OrderLine(1, rødvin);
+        orderLineHvid = new OrderLine(3, hvidvin);
+        orderLineMousserende = new OrderLine(2, mousserendeVin);
+        orderRød = new Order(1, "01-10-2020", "01-10-2020");
+        orderRød.addOrderLine(orderLineRød);
+        orderHvid = new Order(2, "02-10-2020", "02-10-2020");
+        orderHvid.addOrderLine(orderLineHvid);
+        orderMousserende = new Order(3, "03-10-2020", "03-10-2020");
+        orderMousserende.addOrderLine(orderLineMousserende);
+        customerJoakim = new Customer(1, "Joakim", "Gade", "+45 11 22 33 44");
+        customerJoakim.addOrder(orderRød);
+        customerJoakim.addOrder(orderHvid);
+        customerJoakim.addOrder(orderMousserende);
+        customerJoakim.printInfo();
+        customerJoakim.getMaxTotalOrderWhile();
     }
 
     /**
